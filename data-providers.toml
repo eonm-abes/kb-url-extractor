@@ -1,0 +1,8 @@
+[data-provider."https://adminportal.springernature.com/metadata/kbart"]
+name = "springernature"
+white-list = [
+    "https://adminportal.springernature.com/metadata/kbart/metadata/kbart/SpringerNature_Global_Synthesis_Collection_of_Technology_(R0)_eBook_Collection",
+]
+black-list = [
+    "https://www.springernature.com/gp/librarians/contact-us#c10979772"
+]
