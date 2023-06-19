@@ -1,3 +1,5 @@
+#![feature(drain_filter)]
+
 mod cli;
 use cli::Cli;
 
@@ -7,9 +9,12 @@ use config::DataProviders;
 mod link_extractor;
 use link_extractor::LinkExtractor;
 
-mod writer;
-use writer::DataWriter;
+mod link_filter;
+use link_filter::*;
 
+mod writer;
+use url::Url;
+use writer::DataWriter;
 
 use std::path::PathBuf;
 use std::sync::Arc;
@@ -18,10 +23,9 @@ use clap::Parser;
 
 use futures::StreamExt;
 
-use tokio::sync::Mutex;
 use tokio::fs::File;
 use tokio::io::{self, AsyncReadExt};
-
+use tokio::sync::Mutex;
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -37,7 +41,6 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let writer = Arc::new(Mutex::new(writer));
 
-
     let fetches = futures::stream::iter(config.data_provider.into_iter().map(|(url, dp)| {
         let writer = Arc::clone(&writer);
         async move {
@@ -46,18 +49,28 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     Ok(response) => {
                         let html = scraper::Html::parse_document(&response);
 
-                        let links = LinkExtractor::new(
-                            &url.to_string(),
-                            dp.white_list.iter().map(AsRef::as_ref).collect(),
-                            dp.black_list.iter().map(AsRef::as_ref).collect(),
-                        )
-                        .extract(&html);
+                        let mut links: Vec<Url> =
+                            LinkExtractor::new(url).extract(&html).into_iter().collect();
+
+                        let whithe_list = ControlList::new(dp.white_list);
+                        let black_list = ControlList::new(dp.black_list);
+
+                        let link_filter = LinkFilter::new(whithe_list.clone(), black_list.clone());
+                        link_filter.filter::<Url, MatchStartUrlPath>(&mut links);
+
+                        let link_filter = LinkFilter::new(
+                            ControlList::new(dp.allowed_extensions),
+                            ControlList::default(),
+                        );
+                        link_filter.filter::<Url, MatchEndUrlPath>(&mut links);
 
                         for link in links {
                             let link = format!("{}\n", link);
 
                             let mut w = writer.lock().await;
-                            w.write(link.as_bytes()).await.expect("Failed to write data");
+                            w.write(link.as_bytes())
+                                .await
+                                .expect("Failed to write data");
                         }
                     }
                     Err(_) => (),

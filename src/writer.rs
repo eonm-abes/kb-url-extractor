@@ -1,5 +1,5 @@
-use tokio::io::{Stdout, AsyncWriteExt};
 use tokio::fs::File;
+use tokio::io::{AsyncWriteExt, Stdout};
 
 #[derive(Debug)]
 pub enum DataWriter {

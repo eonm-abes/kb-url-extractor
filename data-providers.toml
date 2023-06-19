@@ -1,12 +1,112 @@
 [data-provider]
-  [data-provider."https://adminportal.springernature.com/metadata/kbart"]
-  name = "springernature"
-  white-list = [
-      "https://adminportal.springernature.com/metadata/kbart/metadata/kbart/SpringerNature_Global_Synthesis_Collection_of_Technology_(R0)_eBook_Collection"
-  ]
-  black-list = [
-      "https://www.springernature.com/gp/librarians/contact-us#c10979772"
-  ]
+[data-provider."https://adminportal.springernature.com/metadata/kbart"]
+name = "springernature"
+allowed-extensions = [".txt"]
+white-list = [
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Behavioral_Science_and_Psychology_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Behavioral_Science_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Biomedical_and_Life_Sciences_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Business_and_Economics_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Business_and_Management_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Chemistry_and_Materials_Science_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Computer_Science_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Earth_and_Environmental_Science_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Economics_and_Finance_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Education_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Energy_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Engineering_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_History_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Humanities,_Social_Sciences_and_Law_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Intelligent_Technologies_and_Robotics_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Law_and_Criminology_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Literature,_Cultural_and_Media_Studies__eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Mathematics_and_Statistics_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Medicine_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Physics_and_Astronomy_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Political_Science_and_International_Studies_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Professional_and_Applied_Computing_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Religion_and_Philosophy_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Springer_Social_Sciences_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/Springer_Global_Complete_eBooks_20",
+    "https://adminportal.springernature.com/metadata/kbart/springer_global_complete_journals_",
+    "https://adminportal.springernature.com/metadata/kbart/springernature_springerlink_ebooks_-_open_access_",
+]
 
-  [data-provider."https://example.org"]
-  name = "example.org"
+[data-provider."https://onlinelibrary.wiley.com/library-info/resources/discovery/kbart2019#"]
+name = "wiley"
+white-list = [
+    "https://onlinelibrary.wiley.com/pb-assets/Lib%20Marketing/KBART/Current%20and%20Cumulative/Obook%20Collections/wiley_all_obooks_",
+    "https://onlinelibrary.wiley.com/pb-assets/Lib%20Marketing/KBART/Current%20and%20Cumulative/wiley_emrw_2022-09-01-1663855491483.txt",
+    "https://onlinelibrary.wiley.com/pb-assets/Lib%20Marketing/KBART/Current%20and%20Cumulative/wiley_CurrentProtocols_2022-10-01-1665696207.txt",
+    "https://onlinelibrary.wiley.com/pb-assets/Lib Marketing/KBART/Current and Cumulative/wiley_emrw_"
+]
+
+[data-provider."https://www.dukeupress.edu/Information-For/Librarians/Account-Administration/Title-List"]
+name = "dukeupress"
+allowed-extensions = [".txt"]
+white-list = [
+    "https://www.dukeupress.edu/Assets/KBART/DukeUniversityPress_Global_eDukeBooksAllTitles_",
+    "https://www.dukeupress.edu/Assets/Downloads/LR/DukeUniversityPress_Global_eDukeJournalsExpandedCollection_",
+    "https://www.dukeupress.edu/Assets/Downloads/LR/DukeUniversityPress_Global_eDukeJournalsStandardCollection_",
+]
+
+[data-provider."https://projecteuclid.org/kbart"]
+name = "projecteuclid"
+allowed-extensions = [".txt"]
+white-list = [
+    "https://projecteuclid.org/documents/2023%20Title%20Lists/ProjectEuclid_Global_2023EuclidPrime_",
+    "https://projecteuclid.org/documents/2022%20Title%20Lists/ProjectEuclid_Global_2022MSPonEuclid_",
+    "https://projecteuclid.org/documents/2023%20Title%20Lists/ProjectEuclid_Global_2023OpenAccess_",
+    "https://projecteuclid.org/documents/2023%20Title%20Lists/ProjectEuclid_Global_2023AllTitles_",
+]
+
+[data-provider."https://www.emeraldgrouppublishing.com/how-to/librarians/toolkit/content-cataloguing-and-discovery/kbart-records"]
+name = "emeraldgrouppublishing"
+allowed-extensions = [".txt"]
+white-list = [
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_AllTitles_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldAccountingFinanceandEconomicseJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldBusinessManagementandStrategyeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldEducationeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldEngineeringeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldHealthandSocialCareeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldHRLearningandOrganizationStudieseJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldInformationandKnowledgeManagementeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldLibraryandInformationScienceseJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldMarketingeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldOperationsLogisticsandQualityeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldPropertyManagementandBuiltEnvironmenteJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldPublicPolicyandEnvironmentalManagementeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldTourismandHospitalityManagementeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldeJournalPremierCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagementeJournalPortfolio_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldEngineeringComputingandTechnologyeJournalPortfolio_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagement120_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagement175_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagement200_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_OpenAccessJournals_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagement60_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagement111_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagement150_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagementPlus_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagementFirst120_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldManagementFirst200_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldCriminologyForensicPsychologyeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldLearningIntellectualDisabilityeJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldMentalHealtheJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldVulnerableGroupseJournalCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_AllBooks_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_OpenAccessBooks_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldBusinessManagementandEconomicseBookSeriesCollectionFrontlistLibrary_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldSocialScienceseBookSeriesCollectionFrontlistLibrary_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_AccountingFinanceandEconomicseBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_BusinessManagementandStrategyeBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EducationeBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_HRLearningandOrganizationStudieseBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_LibraryStudiesebookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_MarketingeBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_PublicPolicyandEnvironmentalManagementeBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_SociologyeBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_TourismandHospitalityeBookCollection_",
+    "https://www.emeraldgrouppublishing.com/sites/default/files/assets/EmeraldPublishing_Global_EmeraldTransporteBookCollection_",
+]
