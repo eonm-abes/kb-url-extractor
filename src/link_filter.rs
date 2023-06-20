@@ -80,12 +80,8 @@ impl<C_ITEM: Clone + Debug + Ord> LinkFilter<C_ITEM> {
     }
 
     pub fn filter<X, C: Control<X, C_ITEM>>(self, links: &mut Vec<X>) {
-        links
-            // .iter()
-            .drain_filter(|link| !{
-                // .filter(|link| {
-                !self.black_list.includes::<X, C>(link) || self.white_list.includes::<X, C>(link)
-            });
-        // .collect()
+        links.drain_filter(|link| !{
+            !self.black_list.includes::<X, C>(link) || self.white_list.includes::<X, C>(link)
+        });
     }
 }
