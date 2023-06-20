@@ -7,7 +7,7 @@ pub struct LinkExtractor {
 
 impl LinkExtractor {
     pub fn new(base: Url) -> Self {
-        Self { base: base }
+        Self { base }
     }
 
     pub fn extract<'a>(&self, html: &'a scraper::Html) -> BTreeSet<url::Url> {
