@@ -10,16 +10,15 @@ impl LinkExtractor {
         Self { base }
     }
 
-    pub fn extract<'a>(&self, html: &'a scraper::Html) -> BTreeSet<url::Url> {
+    pub fn extract(&self, html: &scraper::Html) -> BTreeSet<url::Url> {
         let link_selector = scraper::Selector::parse("a").expect("invalid selector");
 
         html.select(&link_selector)
-            .map(|x| x.value().attr("href"))
-            .flatten()
+            .filter_map(|x| x.value().attr("href"))
             .flat_map(|url| {
                 Url::options()
                     .encoding_override(None)
-                    .parse(&url)
+                    .parse(url)
                     // essaye de parser l'URL
                     .or_else(|_| {
                         // en cas d'échec (cas possible de chemin relatif) on essaye de compléter l'URL avec sa base

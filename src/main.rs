@@ -44,38 +44,34 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let fetches = futures::stream::iter(config.data_provider.into_iter().map(|(url, dp)| {
         let writer = Arc::clone(&writer);
         async move {
-            match reqwest::get(url.clone()).await {
-                Ok(resp) => match resp.text().await {
-                    Ok(response) => {
-                        let html = scraper::Html::parse_document(&response);
+            if let Ok(resp) = reqwest::get(url.clone()).await {
+                if let Ok(response) = resp.text().await {
+                    let html = scraper::Html::parse_document(&response);
 
-                        let mut links: Vec<Url> =
-                            LinkExtractor::new(url).extract(&html).into_iter().collect();
+                    let mut links: Vec<Url> =
+                        LinkExtractor::new(url).extract(&html).into_iter().collect();
 
-                        let whithe_list = ControlList::new(dp.white_list);
-                        let black_list = ControlList::new(dp.black_list);
+                    let whithe_list = ControlList::new(dp.white_list);
+                    let black_list = ControlList::new(dp.black_list);
 
-                        let link_filter = LinkFilter::new(whithe_list.clone(), black_list.clone());
-                        link_filter.filter::<Url, MatchStartUrlPath>(&mut links);
+                    let link_filter = LinkFilter::new(whithe_list.clone(), black_list.clone());
+                    link_filter.filter::<Url, MatchStartUrlPath>(&mut links);
 
-                        let link_filter = LinkFilter::new(
-                            ControlList::new(dp.allowed_extensions),
-                            ControlList::default(),
-                        );
-                        link_filter.filter::<Url, MatchEndUrlPath>(&mut links);
+                    let link_filter = LinkFilter::new(
+                        ControlList::new(dp.allowed_extensions),
+                        ControlList::default(),
+                    );
+                    link_filter.filter::<Url, MatchEndUrlPath>(&mut links);
 
-                        for link in links {
-                            let link = format!("{}\n", link);
+                    for link in links {
+                        let link = format!("{}\n", link);
 
-                            let mut w = writer.lock().await;
-                            w.write(link.as_bytes())
-                                .await
-                                .expect("Failed to write data");
-                        }
+                        let mut w = writer.lock().await;
+                        w.write(link.as_bytes())
+                            .await
+                            .expect("Failed to write data");
                     }
-                    Err(_) => (),
-                },
-                Err(_) => (),
+                }
             }
         }
     }))
